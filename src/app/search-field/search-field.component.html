@@ -1,4 +1,7 @@
 <div class="search-field-wrp">
   <input type="search" #searchField>
-  <button type="submit">Let's search!</button>
+  <button type="submit" (click)="showRepositories(searchField.value)">Let's search!</button>
+</div>
+<div class="search-item-wrp" *ngFor="let repo of repos">
+  <p>{{repo.name}}</p>
 </div>

@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { SearchService } from '../shared/search.service';
+import { Repo } from "./model/repo";
 
 @Component({
   selector: 'app-search-field',
@@ -6,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./search-field.component.sass']
 })
 export class SearchFieldComponent {
-  searchValue: string = 'Type at least 3 symbols';
-  constructor() { }
-  getSearchValue = (input) => {
-    console.log(input.value);
+  repos: Repo;
+  showRepositories(searchVal) {
+    this.searchService.getRepositories(searchVal)
+      .subscribe((response) => {
+        this.repos = response.items;
+        console.log(this.repos);
+      });
   }
+  constructor(private searchService: SearchService) {}
+
 }

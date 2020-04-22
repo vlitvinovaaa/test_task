@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
-import { SearchFieldComponent } from "./search-field/search-field.component";
-import { SearchResultsComponent } from "./search-results/search-results.component";
+import { SearchFieldComponent } from './search-field/search-field.component';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['../styles/_default.sass']
+  styleUrls: ['../assets/styles/_default.sass']
 })
 export class AppComponent {
-  title = 'test';
+
 }

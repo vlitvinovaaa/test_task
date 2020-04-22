@@ -31,7 +31,7 @@
               "src/styles.sass"
             ],
             "stylePreprocessorOptions": {
-              "includePaths": ["src/styles"]
+              "includePaths": ["src/assets/styles"]
             },
             "scripts": []
           },
