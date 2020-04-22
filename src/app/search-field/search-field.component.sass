@@ -1,0 +1,23 @@
+@import 'default'
+
+.search-field-wrp
+  width: 50%
+  margin: 0 auto 30px auto
+  > *
+    border-radius: 8px
+    border: none
+    padding: 16px 12px
+    font-size: 20px
+    color: $primaryDark
+    background-color: $primaryLight
+    transition: color .2s ease-in-out
+    &:focus
+      outline: none
+  input
+    width: 70%
+    margin-right: 20px
+  button
+    cursor: pointer
+    &:hover
+      color: $primaryLight
+      background-color: $primaryDark
