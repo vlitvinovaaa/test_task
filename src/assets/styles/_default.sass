@@ -2,9 +2,10 @@ $primaryBg: #2F3545
 $primaryFont: 24px 'Helvetica Neue', Helvetica, Arial, sans-serif
 $primaryDark: #8C6FF0
 $primaryLight: #E6E6E6
+$primaryDisable: #787878
 
 .background-wrp
-  height: 100vh
+  min-height: 100vh
   background: $primaryBg
 .content-wrp
   padding: 80px 40px
@@ -12,3 +13,19 @@ $primaryLight: #E6E6E6
   color: $primaryLight
   > *
     text-align: center
+
+@mixin disable
+  pointer-events: none
+  border-color: $primaryDisable
+  color: $primaryDisable
+
+@mixin defaultBlock
+  font: inherit
+  font-size: 20px
+  border-radius: 8px
+  background-color: $primaryLight
+  color: $primaryDark
+  border: 2px solid transparent
+  transition: color .2s ease-in-out
+  &:focus
+    outline: none
