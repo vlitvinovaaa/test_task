@@ -3,7 +3,7 @@
 .search-field-wrp
   width: 50%
   margin: 0 auto 30px auto
-  > *
+  form > *
     border-radius: 8px
     border: none
     padding: 16px 12px
@@ -21,3 +21,28 @@
     &:hover
       color: $primaryLight
       background-color: $primaryDark
+
+.results-list_item
+  width: 30%
+  display: flex
+  align-items: center
+  justify-content: space-between
+  margin: 0 auto 70px auto
+  padding: 15px
+  border: 2px solid $primaryDark
+  border-radius: 15px
+  cursor: pointer
+  .results-item_img
+    width: 100px
+    height: auto
+    border-radius: 50%
+.results-item_meta
+  font-size: 14px
+  padding-left: 20px
+  flex-grow: 1
+  text-overflow: ellipsis
+  .title
+    font-size: 1.5em
+  .subtitle
+    font-size: 1.2em
+

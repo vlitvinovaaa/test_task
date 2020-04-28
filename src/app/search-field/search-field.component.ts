@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { SearchService } from '../shared/search.service';
-import { Repo } from "./model/repo";
+import { SearchService } from '../shared/services/search.service';
 
 @Component({
   selector: 'app-search-field',
@@ -8,12 +7,15 @@ import { Repo } from "./model/repo";
   styleUrls: ['./search-field.component.sass']
 })
 export class SearchFieldComponent {
-  repos: Repo;
-  showRepositories(searchVal) {
-    this.searchService.getRepositories(searchVal)
+  repos;
+  loading: boolean = false;
+  showRepositories(searchField) {
+    this.loading = true;
+    this.searchService.getRepositories(searchField)
       .subscribe((response) => {
+        console.log(response);
+        this.loading = false;
         this.repos = response.items;
-        console.log(this.repos);
       });
   }
   constructor(private searchService: SearchService) {}

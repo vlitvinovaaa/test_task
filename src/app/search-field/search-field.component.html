@@ -1,7 +1,18 @@
 <div class="search-field-wrp">
-  <input type="search" #searchField>
-  <button type="submit" (click)="showRepositories(searchField.value)">Let's search!</button>
+  <form (submit)="showRepositories(searchField.value)" (keydown.enter)="showRepositories(searchField.value)">
+    <input placeholder="Type your request here" type="search" #searchField>
+    <button type="submit">Let's search!</button>
+  </form>
 </div>
-<div class="search-item-wrp" *ngFor="let repo of repos">
-  <p>{{repo.name}}</p>
-</div>
+
+<ul class="results-list">
+  <li class="results-list_item" *ngFor="let repo of repos">
+    <img class="results-item_img" src="{{repo.owner.avatar_url}}">
+    <div class="results-item_meta">
+      <p class="title">{{repo.name}}</p>
+      <p class="subtitle">{{repo.description}}</p>
+    </div>
+  </li>
+</ul>
+<div class="search-loading" *ngIf="loading">Loading.....</div>
+<div #noResults></div>
