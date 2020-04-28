@@ -5,12 +5,17 @@ import { SearchFieldComponent } from './search-field.component';
 describe('SearchFieldComponent', () => {
   let component: SearchFieldComponent;
   let fixture: ComponentFixture<SearchFieldComponent>;
+  let searchService;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SearchFieldComponent ]
+      declarations: [ SearchFieldComponent ],
+      providers: [{
+        provide: searchService,
+        useValue: jasmine.createSpyObj('searchService', ['getRepositories'])
+      }]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

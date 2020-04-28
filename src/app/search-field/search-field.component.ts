@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import { SearchService } from '../shared/services/search.service';
-import {GitRepoItem} from "../shared/models/git-repo-item";
-import {Subscription} from "rxjs";
+import {GitRepoItem} from '../shared/models/git-repo-item';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-search-field',
@@ -10,9 +10,9 @@ import {Subscription} from "rxjs";
 })
 export class SearchFieldComponent implements OnInit, OnDestroy {
   repos: Array<GitRepoItem>;
-  loading: boolean = false;
-  emptyResult: boolean = false;
-  searchCacheQuery: string = '';
+  loading = false;
+  emptyResult = false;
+  searchCacheQuery = '';
   subscription: Subscription;
 
   constructor(private searchService: SearchService) {}
@@ -37,7 +37,7 @@ export class SearchFieldComponent implements OnInit, OnDestroy {
       });
   }
 
-  ngOnDestroy():void {
+  ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }
 }

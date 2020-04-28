@@ -1,4 +1,4 @@
-import { GitRepoItem } from "./git-repo-item";
+import { GitRepoItem } from './git-repo-item';
 
 export interface GitRepo {
   'total_count': number;
