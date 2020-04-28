@@ -1,0 +1,11 @@
+<nav class="search-pagination">
+  <button type="button" class="pagination-item"
+          (click)="switchPagination(activePage - 1)"
+          [ngClass]="{'disabled': activePage == 1}">
+    Prev
+  </button>
+  <button type="button" class="pagination-item"
+          (click)="switchPagination(activePage + 1)">
+    Next
+  </button>
+</nav>

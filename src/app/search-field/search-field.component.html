@@ -1,9 +1,12 @@
 <div class="search-field-wrp">
   <form (submit)="showRepositories(searchField.value)" (keydown.enter)="showRepositories(searchField.value)">
-    <input placeholder="Type your request here" type="search" #searchField>
+    <input placeholder="Type your request here" type="search" value="{{searchCacheQuery}}" #searchField>
     <button type="submit">Let's search!</button>
   </form>
 </div>
+
+<div *ngIf="loading">Loading....</div>
+<div *ngIf="emptyResult">Sorry, but nothing was found</div>
 
 <ul class="results-list">
   <li class="results-list_item" *ngFor="let repo of repos">
@@ -14,5 +17,8 @@
     </div>
   </li>
 </ul>
-<div class="search-loading" *ngIf="loading">Loading.....</div>
-<div #noResults></div>
+
+<app-search-pagination
+  (paginatePage)="showRepositories(searchCacheQuery, $event)"
+  [repos]="repos">
+</app-search-pagination>

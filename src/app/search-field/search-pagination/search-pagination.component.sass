@@ -1,0 +1,22 @@
+@import 'default'
+
+.search-pagination
+  margin: auto
+  .pagination-item
+    width: 10%
+    padding: 10px
+    margin-right: 30px
+    cursor: pointer
+    font: inherit
+    border-radius: 8px
+    color: $primaryDark
+    border: 2px solid transparent
+    &:hover
+      background: transparent
+      border: 2px solid $primaryDark
+    &.disabled
+      pointer-events: none
+      border-color: darkgray
+      color: darkgray
+    &:focus
+      outline: none

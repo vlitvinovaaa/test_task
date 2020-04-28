@@ -5,7 +5,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { SearchFieldComponent } from './search-field/search-field.component';
 import { FormsModule } from '@angular/forms';
-import { SearchPaginationComponent } from './search-pagination/search-pagination.component';
+import { SearchPaginationComponent } from './search-field/search-pagination/search-pagination.component';
 
 @NgModule({
   declarations: [
