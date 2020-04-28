@@ -27,11 +27,13 @@ export class SearchFieldComponent implements OnInit, OnDestroy {
     this.subscription = this.searchService.getRepositories(searchField, $event)
       .subscribe((response) => {
         this.loading = false;
-        if (response.items.length) {
-          this.emptyResult = true;
+        if (!response.items.length) {
+          return this.emptyResult = true;
         }
         this.emptyResult = false;
         this.repos = response.items;
+      }, error => {
+        console.log(error);
       });
   }
 

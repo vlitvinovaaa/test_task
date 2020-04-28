@@ -1,7 +1,14 @@
 <div class="search-field-wrp">
-  <form (submit)="showRepositories(searchField.value)" (keydown.enter)="showRepositories(searchField.value)">
-    <input placeholder="Type your request here" type="search" value="{{searchCacheQuery}}" #searchField>
-    <button type="submit">Let's search!</button>
+  <form
+    ngNativeValidate
+    (submit)="showRepositories(searchField.value)">
+    <input placeholder="Type your request here"
+           type="text"
+           required="required"
+           value="{{searchCacheQuery}}"
+           #searchField>
+    <button type="submit"
+            [ngClass]="{'disabled': !searchField.value}">Let's search!</button>
   </form>
 </div>
 
@@ -19,6 +26,6 @@
 </ul>
 
 <app-search-pagination
-  (paginatePage)="showRepositories(searchCacheQuery, $event)"
+  (paginatePage)="showRepositories(searchField.value, $event)"
   [repos]="repos">
 </app-search-pagination>
